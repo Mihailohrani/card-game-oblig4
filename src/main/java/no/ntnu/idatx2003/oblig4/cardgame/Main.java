@@ -35,7 +35,6 @@ public class Main extends Application {
    */
   @Override
   public void start(Stage stage) {
-    // UI Components
     cardDisplay.setEditable(false);
     cardDisplay.setPrefSize(400, 200);
 
@@ -45,19 +44,16 @@ public class Main extends Application {
     Button checkHandButton = new Button("Check hand");
     checkHandButton.setOnAction(e -> checkHand());
 
-    // GridPane for results
     GridPane resultsPane = new GridPane();
     resultsPane.setVgap(5);
     resultsPane.setHgap(5);
     resultsPane.addRow(0, new Label("Sum of faces:"), sumField, new Label("Cards of hearts:"), heartsField);
     resultsPane.addRow(1, new Label("Flush:"), flushField, new Label("Queen of Spades:"), queenOfSpadesField);
 
-    // Layout
     VBox root = new VBox(10, cardDisplay, new HBox(10, dealHandButton, checkHandButton), resultsPane);
     root.setPadding(new Insets(10));
     root.setAlignment(Pos.CENTER);
 
-    // Set up the stage
     Scene scene = new Scene(root, 500, 350);
     stage.setScene(scene);
     stage.setTitle("Card Game");
