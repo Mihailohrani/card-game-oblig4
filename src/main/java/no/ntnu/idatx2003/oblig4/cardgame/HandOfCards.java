@@ -68,11 +68,12 @@ public class HandOfCards {
    * @return true if the hand is a flush, false otherwise.
    */
   public boolean isFlush() {
-    return cards.stream()
+    return cards.size() == 5 && cards.stream()
         .map(PlayingCard::getSuit)
         .distinct()
         .count() == 1;
   }
+
 
   /**
    * Returns cards in the hand as a readable string.
