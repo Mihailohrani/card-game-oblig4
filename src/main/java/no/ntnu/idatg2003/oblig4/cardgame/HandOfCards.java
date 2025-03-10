@@ -1,4 +1,4 @@
-package no.ntnu.idatx2003.oblig4.cardgame;
+package no.ntnu.idatg2003.oblig4.cardgame;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
  * Provides analysis methods for the hand.
  *
  * @author Mihailo Hranisavljevic
- * @version 2025-03-08
+ * @version 2025-03-10
  */
 public class HandOfCards {
 

@@ -1,4 +1,4 @@
-package no.ntnu.idatx2003.oblig4.cardgame;
+package no.ntnu.idatg2003.oblig4.cardgame;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -10,14 +10,12 @@ import javafx.stage.Stage;
 import java.util.List;
 
 /**
- * <p>The Main class represents the entry point for the JavaFX-based Card Game application.
- * This application allows users to deal a hand of cards and analyze the hand for
- * different properties.</p>
+ * The GameWindow class manages the JavaFX UI and game logic.
  *
  * @author Mihailo Hranisavljevic
- * @version 2025-03-09
+ * @version 2025-03-10
  */
-public class Main extends Application {
+public class GameWindow extends Application {
 
   private final DeckOfCards deck = new DeckOfCards();
   private HandOfCards currentHand;
@@ -29,12 +27,21 @@ public class Main extends Application {
   private final TextField queenOfSpadesField = new TextField();
 
   /**
-   * Starts the JavaFX application and initializes the GUI components.
+   * Starts the JavaFX application and sets up the UI.
    *
    * @param stage The primary stage for this application.
    */
   @Override
   public void start(Stage stage) {
+    setupUI(stage);
+  }
+
+  /**
+   * Sets up the UI components and layout.
+   *
+   * @param stage The primary JavaFX window.
+   */
+  private void setupUI(Stage stage) {
     cardDisplay.setEditable(false);
     cardDisplay.setPrefSize(400, 200);
 
@@ -70,8 +77,7 @@ public class Main extends Application {
   }
 
   /**
-   * Analyzes the current hand and updates the corresponding GUI fields
-   * with the computed values (sum of faces, hearts cards, flush status, queen of spades).
+   * Analyzes the current hand and updates the corresponding GUI fields.
    */
   private void checkHand() {
     if (currentHand == null) {
@@ -85,9 +91,9 @@ public class Main extends Application {
   }
 
   /**
-   * The main entry point for the JavaFX application.
+   * Launches the JavaFX application.
    *
-   * @param args Command-line arguments (not used in this application).
+   * @param args Command-line arguments (not used).
    */
   public static void main(String[] args) {
     launch(args);

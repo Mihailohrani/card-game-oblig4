@@ -1,4 +1,4 @@
-package no.ntnu.idatx2003.oblig4.cardgame;
+package no.ntnu.idatg2003.oblig4.cardgame;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,17 +9,17 @@ import java.util.List;
  * Provides functionality to deal a hand of cards randomly.
  *
  * @author Mihailo Hranisavljevic
- * @version 2025-03-08
+ * @version 2025-03-10
  */
 public class DeckOfCards {
 
-  private final char[] suits = {'S', 'H', 'D', 'C'};
   private final List<PlayingCard> deck = new ArrayList<>();
 
   /**
    * Constructs a full deck containing 52 playing cards (13 faces x 4 suits).
    */
   public DeckOfCards() {
+    char[] suits = {'S', 'H', 'D', 'C'};
     for (char suit : suits) {
       for (int face = 1; face <= 13; face++) {
         deck.add(new PlayingCard(suit, face));
@@ -34,7 +34,12 @@ public class DeckOfCards {
    * @return a list containing the dealt playing cards
    */
   public List<PlayingCard> dealHand(int n) {
+    if (n < 1 || n > deck.size()) {
+      throw new IllegalArgumentException("Number of cards must be between 1 and the remaining deck size.");
+    }
     Collections.shuffle(deck);
-    return deck.stream().limit(n).toList();
+    return new ArrayList<>(deck.subList(0, n));
   }
+
+
 }
