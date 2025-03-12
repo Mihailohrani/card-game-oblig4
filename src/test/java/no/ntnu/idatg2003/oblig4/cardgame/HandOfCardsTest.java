@@ -1,14 +1,14 @@
 package no.ntnu.idatg2003.oblig4.cardgame;
 
 import org.junit.jupiter.api.Test;
-import java.util.List;
+import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.*;
 
 class HandOfCardsTest {
 
   @Test
   void getSumOfFacesShouldReturnCorrectSum() {
-    HandOfCards hand = new HandOfCards(List.of(
+    HandOfCards hand = new HandOfCards(Stream.of(
         new PlayingCard('H', 5),
         new PlayingCard('D', 10),
         new PlayingCard('S', 3)
@@ -18,7 +18,7 @@ class HandOfCardsTest {
 
   @Test
   void getHeartsAsStringShouldReturnCorrectString() {
-    HandOfCards hand = new HandOfCards(List.of(
+    HandOfCards hand = new HandOfCards(Stream.of(
         new PlayingCard('H', 4),
         new PlayingCard('H', 12),
         new PlayingCard('C', 9)
@@ -28,7 +28,7 @@ class HandOfCardsTest {
 
   @Test
   void getHeartsAsStringShouldReturnNoHeartsIfNone() {
-    HandOfCards hand = new HandOfCards(List.of(
+    HandOfCards hand = new HandOfCards(Stream.of(
         new PlayingCard('C', 2),
         new PlayingCard('D', 6),
         new PlayingCard('S', 7)
@@ -38,7 +38,7 @@ class HandOfCardsTest {
 
   @Test
   void hasQueenOfSpadesShouldReturnTrueIfPresent() {
-    HandOfCards hand = new HandOfCards(List.of(
+    HandOfCards hand = new HandOfCards(Stream.of(
         new PlayingCard('H', 3),
         new PlayingCard('S', 12),
         new PlayingCard('D', 9)
@@ -48,7 +48,7 @@ class HandOfCardsTest {
 
   @Test
   void hasQueenOfSpadesShouldReturnFalseIfAbsent() {
-    HandOfCards hand = new HandOfCards(List.of(
+    HandOfCards hand = new HandOfCards(Stream.of(
         new PlayingCard('H', 3),
         new PlayingCard('S', 11),
         new PlayingCard('D', 9)
@@ -58,7 +58,7 @@ class HandOfCardsTest {
 
   @Test
   void isFlushShouldReturnTrueForFlushHand() {
-    HandOfCards hand = new HandOfCards(List.of(
+    HandOfCards hand = new HandOfCards(Stream.of(
         new PlayingCard('H', 2),
         new PlayingCard('H', 5),
         new PlayingCard('H', 9),
@@ -70,7 +70,7 @@ class HandOfCardsTest {
 
   @Test
   void isFlushShouldReturnFalseForNonFlushHand() {
-    HandOfCards hand = new HandOfCards(List.of(
+    HandOfCards hand = new HandOfCards(Stream.of(
         new PlayingCard('H', 2),
         new PlayingCard('D', 5),
         new PlayingCard('H', 9),

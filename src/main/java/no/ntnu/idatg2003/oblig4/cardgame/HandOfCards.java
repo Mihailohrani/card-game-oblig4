@@ -2,6 +2,7 @@ package no.ntnu.idatg2003.oblig4.cardgame;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Represents a hand of playing cards dealt from a deck.
@@ -15,15 +16,16 @@ public class HandOfCards {
   private final List<PlayingCard> cards;
 
   /**
-   * Constructs a HandOfCards with the given list of cards.
+   * Constructs a HandOfCards with the given stream of cards.
    *
-   * @param cards the cards dealt from the deck.
+   * @param cardsStream the stream of cards dealt from the deck.
    */
-  public HandOfCards(List<PlayingCard> cards) {
-    if (cards == null || cards.isEmpty()) {
+  public HandOfCards(Stream<PlayingCard> cardsStream) {
+    this.cards = cardsStream.toList();
+
+    if (this.cards.isEmpty()) {
       throw new IllegalArgumentException("A hand of cards cannot be empty or null");
     }
-    this.cards = cards;
   }
 
   /**
@@ -84,14 +86,5 @@ public class HandOfCards {
     return cards.stream()
         .map(PlayingCard::getAsString)
         .collect(Collectors.joining(" "));
-  }
-
-  /**
-   * Returns the list of cards in the hand.
-   *
-   * @return list of cards.
-   */
-  public List<PlayingCard> getCards() {
-    return cards;
   }
 }

@@ -3,6 +3,8 @@ package no.ntnu.idatg2003.oblig4.cardgame;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Stream;
+
 
 /**
  * Represents a complete deck of playing cards (52 cards).
@@ -33,13 +35,14 @@ public class DeckOfCards {
    * @param n the number of cards to deal (must be between 1 and 52)
    * @return a list containing the dealt playing cards
    */
-  public List<PlayingCard> dealHand(int n) {
+  public Stream<PlayingCard> dealHand(int n) {
     if (n < 1 || n > deck.size()) {
       throw new IllegalArgumentException("Number of cards must be between 1 and the remaining deck size.");
     }
     Collections.shuffle(deck);
-    return new ArrayList<>(deck.subList(0, n));
+    return deck.stream().limit(n);
   }
+
 
 
 }

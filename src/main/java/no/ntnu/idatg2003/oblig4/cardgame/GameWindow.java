@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import java.util.List;
 
 /**
  * The GameWindow class manages the JavaFX UI and game logic.
@@ -71,10 +70,10 @@ public class GameWindow extends Application {
    * Deals a new hand of 5 random cards from the deck and updates the display.
    */
   private void dealHand() {
-    List<PlayingCard> cards = deck.dealHand(5);
-    currentHand = new HandOfCards(cards);
+    currentHand = new HandOfCards(deck.dealHand(5));
     cardDisplay.setText(currentHand.getHandAsString());
   }
+
 
   /**
    * Analyzes the current hand and updates the corresponding GUI fields.
