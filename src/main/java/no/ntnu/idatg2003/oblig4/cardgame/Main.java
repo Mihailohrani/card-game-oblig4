@@ -8,6 +8,6 @@ package no.ntnu.idatg2003.oblig4.cardgame;
  */
 public class Main {
   public static void main(String[] args) {
-    GameWindow.main(args); // Launch JavaFX UI
+    GameWindow.main(args);
   }
 }
